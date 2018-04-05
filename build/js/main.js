@@ -38,8 +38,8 @@ console.info('TiG Init');
         //console.log(aluno);
         //console.log(professor);
 
-        writeUserData(aluno);
-        writeUserData(professor);
+        //writeUserData(aluno);
+        //writeUserData(professor);
         back();
     });
 
@@ -56,6 +56,7 @@ console.info('TiG Init');
 
     function back() {
         console.log('enviado');
+        $('#modal').modal();
         document.getElementById("cadastro").reset();
     }
 
