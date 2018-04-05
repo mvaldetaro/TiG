@@ -55,67 +55,48 @@
 				<!-- form -->
 				<div class="col-md-6">
 					<h2>Inscreva-se aqui!</h2>
-					<form action="" method="post">
+					<form id="cadastro" method="post" >
 						<div class="form-group">
-							<label for="nome">Nome</label>
+							<label for="nome">Nome:</label>
 							<input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome completo">
 						</div>
 						<div class="form-group">
-							<label for="idade">Idade</label>
-							<input type="text" class="form-control" id="idade" name="idade" placeholder="Digite sua idade">
-						</div>
-						<div class="form-group">
-							<label for="email">Email</label>
+							<label for="email">Email:</label>
 							<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite seu email">
 							<small id="emailHelp" class="form-text text-muted">Nós não iremos compartilhar seu email</small>
 						</div>
-						<div class="form-group">
-							<label for="escola">Escola</label>
-							<select class="form-control" id="escola" name="escola">
-								<option>Escola 1</option>
-								<option>Escola 2</option>
-								<option>Escola 3</option>
-								<option>Escola 4</option>
-								<option>Escola 5</option>
-							</select>
+						<div id="escolagroup" class="form-group">
+							<label for="escola">Escola:</label>
+							<input type="text" class="form-control typeahead" id="escola" name="escola" placeholder="Digite o nome da sua escola">
 						</div>
 						<div class="form-group">
-							<label for="serie">Série</label>
+							<label for="serie">Ensino Médio:</label>
 							<select class="form-control" id="serie" name="serie">
-								<option>Série 1</option>
-								<option>Série 2</option>
-								<option>Série 3</option>
-								<option>Série 4</option>
-								<option>Série 5</option>
+								<option>1º Ano</option>
+								<option>2º Ano</option>
+								<option>3º Ano</option>
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="turno">Turno</label>
+							<label for="turno">Turno:</label>
 							<select class="form-control" id="turno" name="turno">
 								<option>Manhã</option>
 								<option>Tarde</option>
 								<option>Noite</option>
 							</select>
 						</div>
+						<hr>
 						<div class="form-group">
-							<label for="bairro">Bairro da Escola</label>
-							<select class="form-control" id="bairro" name="bairro">
-								<option>Bairro 1</option>
-								<option>Bairro 2</option>
-								<option>Bairro 3</option>
-								<option>Bairro 4</option>
-								<option>Bairro 5</option>
-							</select>
+							<label for="nome_professor">Escolha um Professor "Padrinho" do time:</label>
+							<input type="text" class="form-control" id="nome_professor" name="nome_professor" placeholder="Digite o nome do professor">
 						</div>
 						<div class="form-group">
-							<label for="nome_professor">Professor Coordenador</label>
-							<input type="text" class="form-control" id="nome_professor" name="nome_professor" placeholder="Digite seu nome do professor">
+							<label for="email_professor">Email do Professor Coordenador:</label>
+							<input type="email" class="form-control" id="email_professor" name="email_professor" placeholder="Digite email do professor">
 						</div>
-						<div class="form-group">
-							<label for="email_professor">Email do Professor Coordenador</label>
-							<input type="email" class="form-control" id="nome_professor" name="nome_professor" placeholder="Digite email do professor">
-						</div>
-						<button type="submit" class="btn btn-lg btn-block btn-form hvr-grow">ENVIAR</button>
+						<p><small>*O professor escolhido pelo Colégio receberá um ingresso cortesia para o "Workshop de Inovação no Ensino por meio de Gameficação"
+						na ECDD.</small></p>
+						<button id="sendForm" class="btn btn-lg btn-block btn-form hvr-grow">ENVIAR</button>
 					</form>
 				</div>
 			</div>
@@ -147,9 +128,14 @@
 		</div>
 	</div>
 </footer>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="data/escolas.js"></script>
+<script src="js/vendor/typeahead.bundle.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
+<script src="js/firebase_config.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
