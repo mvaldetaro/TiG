@@ -226,3 +226,57 @@ main{
     height: 450%;
 }
 
+.modal {
+    color: #000;
+}
+
+.modal-content {
+    border-radius: 0;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.83);
+    margin: 32px 0;
+
+}
+
+/* Ajustes */
+
+label,
+.twitter-typeahead {
+    width: 100%;
+}
+
+input.typeahead {
+    text-transform: uppercase;
+}
+
+/* Typeahead */
+
+.tt-menu {
+    background: #000;
+    width: 100%;
+    border: 3px solid #18FFFF;
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.tt-suggestion:hover {
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  background-color: #18FFFF;
+}
+
+.tt-suggestion.tt-cursor {
+  color: #000;
+  font-weight: bold;
+  background-color: #18FFFF;
+
+}
