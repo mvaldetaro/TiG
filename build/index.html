@@ -5,13 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Tig</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/brands.css" integrity="sha384-IiIL1/ODJBRTrDTFk/pW8j0DUI5/z9m1KYsTm/RjZTNV8RHLGZXkUDwgRRbbQ+Jh"
-	 crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P"
-	 crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/brands.css" integrity="sha384-IiIL1/ODJBRTrDTFk/pW8j0DUI5/z9m1KYsTm/RjZTNV8RHLGZXkUDwgRRbbQ+Jh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/hover-min.css">
 </head>
@@ -20,7 +17,9 @@
 	<header class="header text-center">
 		<div class="container">
 			<div class="content">
-				<h1>TiG</h1>
+				<h1><span>TiG</span>
+					<img src="images/logo-tig.png" alt="Torneio Intercolegias de games">
+				</h1>
 				<h2>Torneio Intercolegial de Games</h2>
 				<p class="subcontent">
 					<span class="local">ECDD Escola de Comunicação e Design Digital do Instituto Infnet
@@ -58,44 +57,45 @@
 					<form id="cadastro" method="post" >
 						<div class="form-group">
 							<label for="nome">Nome:</label>
-							<input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome completo">
+							<input type="text" class="form-control" id="nome" name="nome" minlength="8" placeholder="Digite seu nome completo" required>
 						</div>
 						<div class="form-group">
 							<label for="email">Email:</label>
-							<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite seu email">
+							<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite seu email" required>
 							<small id="emailHelp" class="form-text text-muted">Nós não iremos compartilhar seu email</small>
 						</div>
 						<div id="escolagroup" class="form-group">
 							<label for="escola">Escola:</label>
-							<input type="text" class="form-control typeahead" id="escola" name="escola" placeholder="Digite o nome da sua escola">
+							<input type="text" class="form-control typeahead" id="escola" name="escola" placeholder="Digite o nome da sua escola" required>
 						</div>
 						<div class="form-group">
 							<label for="serie">Ensino Médio:</label>
-							<select class="form-control" id="serie" name="serie">
-								<option>1º Ano</option>
-								<option>2º Ano</option>
-								<option>3º Ano</option>
+							<select class="form-control" id="serie" name="serie" required>
+								<option value="" disabled selected>Selecione o ano</option>
+								<option value="1º Ano">1º Ano</option>
+								<option value="2º Ano">2º Ano</option>
+								<option value="3º Ano">3º Ano</option>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="turno">Turno:</label>
-							<select class="form-control" id="turno" name="turno">
-								<option>Manhã</option>
-								<option>Tarde</option>
-								<option>Noite</option>
+							<select class="form-control" id="turno" name="turno" required>
+								<option value="" disabled selected>Selecione o turno</option>
+								<option value="Manhã">Manhã</option>
+								<option value="Tarde">Tarde</option>
+								<option value="Noite">Noite</option>
 							</select>
 						</div>
 						<hr>
 						<div class="form-group">
 							<label for="nome_professor">Escolha um Professor "Padrinho" do time:</label>
-							<input type="text" class="form-control" id="nome_professor" name="nome_professor" placeholder="Digite o nome do professor">
+							<input type="text" class="form-control" id="nome_professor" name="nome_professor" placeholder="Digite o nome do professor" required>
 						</div>
 						<div class="form-group">
 							<label for="email_professor">Email do Professor Coordenador:</label>
-							<input type="email" class="form-control" id="email_professor" name="email_professor" placeholder="Digite email do professor">
+							<input type="email" class="form-control" id="email_professor" name="email_professor" placeholder="Digite email do professor" required>
 						</div>
-						<p><small>*O professor escolhido pelo Colégio receberá um ingresso cortesia para o "Workshop de Inovação no Ensino por meio de Gameficação"
-						na ECDD.</small></p>
+						<p><small>*O professor escolhido pelo Colégio receberá um ingresso cortesia para o "Workshop de Inovação no Ensino por meio de Gameficação" na ECDD.</small></p>
 						<button id="sendForm" class="btn btn-lg btn-block btn-form hvr-grow">ENVIAR</button>
 					</form>
 				</div>
@@ -105,9 +105,8 @@
 	</div>
 </main>
 <footer>
-	<div class="embed-responsive embed-responsive-40by9">
-		<iframe class="embed-responsive-item" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJvygeiV5_mQARzTZdl1Da_OE&key=AIzaSyCIzd0kTgV9r422st0XOdnNuYEGI9uFiJ4"
-		allowfullscreen></iframe>
+	<div class="embed-responsive embed-responsive-40by9 clip-footer">
+		<iframe class="embed-responsive-item" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJvygeiV5_mQARzTZdl1Da_OE&key=AIzaSyCIzd0kTgV9r422st0XOdnNuYEGI9uFiJ4" allowfullscreen></iframe>
 	</div>
 	
 	<div class="footer">
@@ -128,8 +127,28 @@
 		</div>
 	</div>
 </footer>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h3>Obrigado pelo seu interesse em participar do TIG!</h3> 
+				<p>Nesta primeira etapa, convidaremos alguns dos colégios inscritos. Caso o seu seja um deles, você receberá um e-mail com o comunicado até o dia <b>20/04</b>.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="js/vendor/jquery.validate.min.js"></script>
+<script src="js/vendor/jquery.validate.pt-br.js"></script>
 <script src="data/escolas.js"></script>
 <script src="js/vendor/typeahead.bundle.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
