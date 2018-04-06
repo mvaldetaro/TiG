@@ -253,6 +253,16 @@ input.typeahead {
     text-transform: uppercase;
 }
 
+/* jQuery Validation */
+.error {
+    color: #FF1744;
+}
+
+input.error,
+select.error {
+    border: 1px solid #FF1744;
+}
+
 /* Typeahead */
 
 .tt-menu {

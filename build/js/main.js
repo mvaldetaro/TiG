@@ -9,40 +9,45 @@ console.info('TiG Init');
         firebaseDatabase.ref('contatos/' + userId).set(data);
     }
 
-    $('#cadastro').on('submit', function(e) {
-        e.preventDefault();
-        let form = $('#cadastro');
-        let dataForm = formDataToJson(form);
-        let tipo = ['aluno', 'professor']
+    $("#cadastro").validate({
+        submitHandler: function(form) {                
+            let formulario = $(form);
+            let dataForm = formDataToJson(formulario);
+            let tipo = ['aluno', 'professor'];
 
-        const aluno = new Contato(
-            dataForm.nome, 
-            dataForm.email,
-            getEscolaId(dataForm.escola), 
-            dataForm.escola, 
-            dataForm.serie, 
-            dataForm.turno,
-            tipo[0]
-        );
+            const aluno = new Contato(
+                dataForm.nome, 
+                dataForm.email,
+                getEscolaAttr(dataForm.escola, 'new_co_entidade'), 
+                getEscolaAttr(dataForm.escola, 'new_escolasid'), 
+                dataForm.escola, 
+                dataForm.serie, 
+                dataForm.turno,
+                tipo[0]
+            );
 
-        const professor = new Contato(
-            dataForm.nome_professor, 
-            dataForm.email_professor, 
-            getEscolaId(dataForm.escola),
-            dataForm.escola, 
-            dataForm.serie, 
-            dataForm.turno,
-            tipo[1]
-        );
+            const professor = new Contato(
+                dataForm.nome_professor, 
+                dataForm.email_professor, 
+                getEscolaAttr(dataForm.escola, 'new_co_entidade'), 
+                getEscolaAttr(dataForm.escola, 'new_escolasid'), 
+                dataForm.escola, 
+                dataForm.serie, 
+                dataForm.turno,
+                tipo[1]
+            );
 
-        //console.log(aluno);
-        //console.log(professor);
+            //console.log(aluno);
+            //console.log(professor);
 
-        //writeUserData(aluno);
-        //writeUserData(professor);
-        back();
+            // Firebase
+            writeUserData(aluno);
+            writeUserData(professor);
+            back();
+        }
     });
 
+    
     function formDataToJson(form) {
         var formData = form.serializeArray();
         var objData = {};
@@ -50,7 +55,7 @@ console.info('TiG Init');
         $.map(formData, function(n, i){
             objData[n['name']] = n['value'];
         });
-        //console.log(objData);
+
         return objData;
     }
 
@@ -60,12 +65,13 @@ console.info('TiG Init');
         document.getElementById("cadastro").reset();
     }
 
-    function Contato(nome, email, escolaId, escola, serie, turno, tipo) {
+    function Contato(nome, email, co_entidade, escolasid, no_entidade, serie, turno, tipo) {
         this.uid = guid();
         this.nome = nome;
         this.email = email;
-        this.escola_id = escolaId;
-        this.escola = escola;
+        this.co_entidade = co_entidade;
+        this.escolasid = escolasid;
+        this.escola = no_entidade;
         this.serie = serie;
         this.turno = turno;
         this.tipo = tipo;
@@ -90,6 +96,18 @@ console.info('TiG Init');
             }
         }
         return id ;
+    }
+
+    function getEscolaAttr(nomeEscola, attr) {
+        var arrayEscolas = escolasData;
+        var value = "";
+        for (let i = 0; i < arrayEscolas.length; i++) {
+            const element = arrayEscolas[i];
+            if (element['new_no_entidade'] == nomeEscola) {
+                var value = element[attr];
+            }
+        }
+        return value ;
     }
     
     var substringMatcher = function(strs) {
@@ -124,6 +142,11 @@ console.info('TiG Init');
             source: substringMatcher(escolas)
         }
     );
+
+
+    
+
+
 })(window, jQuery);
 
 
